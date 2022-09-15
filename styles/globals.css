@@ -1,0 +1,43 @@
+@import '~antd/dist/antd.css';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  min-height: 100%;
+  background-color: #F6F6F7;
+}
+div{
+  font-family: Inter, sans-serif;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.remove-btn {
+  margin-right: 0.5rem;
+}
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
