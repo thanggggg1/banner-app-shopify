@@ -1,5 +1,5 @@
 @import '~antd/dist/antd.css';
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 html,
 body {
   padding: 0;
@@ -40,4 +40,13 @@ a {
 .item-exit-active {
   opacity: 0;
   transition: opacity 500ms ease-in;
+}
+
+/*config antd*/
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: white;
+  border-color: #18A0FB;
+}
+.ant-checkbox-checked .ant-checkbox-inner:after {
+  border-color: #18A0FB !important;
 }

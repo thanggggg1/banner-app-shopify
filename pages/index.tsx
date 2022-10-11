@@ -7,6 +7,9 @@ import {fontScale} from "../utils/fontScale";
 import {BackTop, Select} from "antd";
 import UseWindowSize from "../hooks/useWindowSize";
 import {MailOutlined, MinusCircleOutlined, PlusCircleOutlined} from "@ant-design/icons";
+import {WelcomeBox} from "../components/WelcomeBox";
+import {FilterBanner} from "../components/FilterBanner";
+import {Banner} from "../components/Banner";
 
 const Home: NextPage = () => {
     const {width} = UseWindowSize();
@@ -21,7 +24,7 @@ const Home: NextPage = () => {
                     <br/>
                     <br/>
                     <HeaderSection>
-                        <TextTitle res={res}>Tên title</TextTitle>
+                        <TextTitle res={res}>Banner app</TextTitle>
                         <div style={{
                             display: 'flex',
                             width: '100%',
@@ -29,84 +32,23 @@ const Home: NextPage = () => {
                             marginTop: 16,
                             alignItems: "center"
                         }}>
-                            <TextHeading res={res}>Tên Subtitle </TextHeading>
-                            <ButtonSave>
-                                <TextButton res={res}>
-                                    Text Button
-                                </TextButton>
-                            </ButtonSave>
+                            <TextHeading res={res}>Your Banner</TextHeading>
                         </div>
                     </HeaderSection>
                     <br/>
+                    <WelcomeBox/>
+                    <br/>
+                    <FilterBanner/>
+                    <br/>
                     <DivBackgroundWhite width={width}>
-                        <DivTextBold>
-                            <TextBold res={res}>General Preview</TextBold>
-                            <ButtonEnable>
-                                <TextEnable res={res}>Example Text</TextEnable>
-                            </ButtonEnable>
-                        </DivTextBold>
-                        <DivTextLight>
-                            <TextLight res={res}>Example Text</TextLight>
-
-                        </DivTextLight>
-
-                        <DivTextLight>
-                            <div>
-                                <TextLight res={res}>Example 1</TextLight>
-                                <br/>
-                                <div style={{marginTop: 8, display: "flex", alignItems: 'center'}}>
-                                    <SubTextLight res={res}>Example style</SubTextLight>
-                                </div>
-                            </div>
-
-
-                        </DivTextLight>
-                        <DivTextLight>
-                            <div>
-                                <TextLight res={res}>Example style</TextLight>
-                                <br/>
-                                <div style={{marginTop: 8}}>
-                                    <SubTextLight res={res}>Example style</SubTextLight>
-                                </div>
-                            </div>
-                        </DivTextLight>
-                        <DivTextLight>
-                            <div>
-                                <TextLight res={res}>Example style</TextLight>
-                                <br/>
-                                <div style={{marginTop: 8, display: "flex", alignItems: 'center'}}>
-                                    <SubTextLight res={res}>Example style </SubTextLight>
-                                </div>
-                            </div>
-
-                        </DivTextLight>
-                        <DivTextLight>
-                            <div>
-                                <TextLight res={res}>Example style</TextLight>
-                                <br/>
-                                <div style={{marginTop: 8, display: "flex", alignItems: 'center'}}>
-                                    <SubTextLight res={res}>Example bottom width </SubTextLight>
-                                </div>
-                            </div>
-
-                        </DivTextLight>
-                        <br/>
-
-
-                        <Footer>
-                            <SubTextLight
-                                res={res}>{width > 750 ? `© Copyright 2022. Powered by Sortecom. All rights reserved.` : `Powered by Sortecom.`}</SubTextLight>
-                            <RowSection>
-
-                                <ContactDiv onClick={(e) => {
-                                    window.location.href = 'mailto:support@techverest.com';
-                                    e.preventDefault();
-                                }}>
-                                    <MailOutlined style={{marginRight: 6, fontSize: 16}}/>
-                                    <SubTextLightHover res={res}>support@techverest.com</SubTextLightHover>
-                                </ContactDiv>
-                            </RowSection>
-                        </Footer>
+                        <RowBanner>
+                            <Banner/>
+                            <Banner/>
+                        </RowBanner>
+                        <RowBanner>
+                            <Banner/>
+                            <Banner/>
+                        </RowBanner>
                     </DivBackgroundWhite>
                 </ContentContainer>
                 {width > 1000 && <RightContainer/>}
@@ -118,6 +60,22 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+
+//footer
+{/*<Footer>*/}
+{/*    <SubTextLight*/}
+{/*        res={res}>{width > 750 ? `© Copyright 2022. Powered by Sortecom. All rights reserved.` : `Powered by Sortecom.`}</SubTextLight>*/}
+{/*    <RowSection>*/}
+{/*        <ContactDiv onClick={(e) => {*/}
+{/*            window.location.href = 'mailto:support@techverest.com';*/}
+{/*            e.preventDefault();*/}
+{/*        }}>*/}
+{/*            <MailOutlined style={{marginRight: 6, fontSize: 16}}/>*/}
+{/*            <SubTextLightHover res={res}>support@techverest.com</SubTextLightHover>*/}
+{/*        </ContactDiv>*/}
+{/*    </RowSection>*/}
+{/*</Footer>*/}
 const Container = styled.div`
   display: flex;
   background-color: #F6F6F7;
@@ -181,69 +139,7 @@ const HeaderSection = styled.div`
   border-bottom: 1px solid #00000033;
   padding-bottom: 8px;
 `
-const ButtonSave = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #18A0FB;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  padding: 12px;
 
-  &:hover {
-    background-color: #004AF7;
-  }
-`
-const TextButton = styled.span<{ res: boolean }>`
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: ${p => p.res && fontScale(12)}px;
-  line-height: 18px;
-  text-align: center;
-  letter-spacing: -0.015em;
-  color: #FFFFFF;
-`
-const DivTextBold = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  border-bottom: 1px solid #00000033;
-  padding-bottom: 12px;
-  margin: 30px 0;
-`
-const DivTextLight = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  margin: 20px 0;
-  background-color: white;
-`
-const DivTextLightRes = styled.div<{ width: number }>`
-  display: flex;
-  align-items: ${p => p.width > 580 && 'center'};
-  flex-direction: ${p => p.width < 580 && 'column'};
-  justify-content: ${p => p.width > 580 && 'space-between'};
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  margin: 20px 0;
-  background-color: white;
-`
-const TextBold = styled.span<{ res: boolean }>`
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: ${p => p.res && fontScale(16)}px;
-  line-height: 18px;
-  letter-spacing: 0.05em;
-  color: #000000;
-`
 const TextLight = styled.span<{ res: boolean }>`
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -264,145 +160,7 @@ const SubTextLight = styled(TextLight)<{ res: boolean }>`
   letter-spacing: 0.025em;
   color: #7C7C7C;
 `
-const ButtonEnable = styled.button`
-  border: none;
-  background-color: white;
-  cursor: pointer;
-`
-const TextEnable = styled(SubTextLight)`
-  &:hover {
-    color: #18A0FB;
-  }
-`
-const BannerContainer = styled.div<{ isShow: boolean }>`
-  display: none;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border: 1.5px solid #1D1B291A;
-  padding: 28px 40px;
-  border-radius: 6px;
-  opacity: ${p => p.isShow ? 1 : 0.5}
-  transition: all 2s;
-`
 
-const TextBannerLight = styled.span<{ res: boolean }>`
-  font-style: normal;
-  font-weight: 400;
-  font-size: ${p => p.res && fontScale(14)}px;
-  line-height: 17px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.025em;
-  color: #1D1B29;
-`
-const TextBannerBold = styled(TextBannerLight)`
-  font-weight: 700;
-`
-const ButtonRate = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #18A0FB;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  padding: 12px 24px;
-
-  &:hover {
-    background-color: #004AF7;
-  }
-`
-const ButtonRateBorder = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #18A0FB;
-  border-radius: 6px;
-  cursor: pointer;
-  padding: 12px 24px;
-
-  &:hover {
-    background-color: #004AF7;
-  }
-`
-const IconExit = styled.button`
-  display: flex;
-  position: absolute;
-  align-items: center;
-  background-color: white;
-  justify-content: center;
-  border: none;
-  right: 12px;
-  top: 12px;
-  cursor: pointer;
-`
-const ImageExit = styled(Image)`
-  width: 12px;
-  height: 12px;
-
-`
-
-const SelectOption = styled(Select)<{ width: number }>`
-  border: 2px solid #0000004D;
-  border-radius: 10px;
-  width: ${p => p.width > 580 ? '40%' : '100%'};
-  margin-top: ${p => p.width < 580 && 12}px;
-`
-const ColumnSection = styled.div<{ width: number }>`
-  width: ${p => p.width > 580 ? '40%' : '100$'};
-`
-
-const AddSpecialPage = styled.div`
-  display: flex;
-  align-items: center;
-  border: 2px solid #0000004D;
-  border-radius: 10px;
-  width: 100%;
-  padding: 8px;
-  cursor: pointer;
-  margin: 12px 0;
-`
-
-const MinusSpecialPage = styled.div`
-  display: flex;
-  align-items: center;
-  border: 2px solid #0000004D;
-  border-radius: 10px;
-  width: 100%;
-  padding: 2px 8px;
-  cursor: pointer;
-  margin: 12px 0;
-
-
-`
-const ButtonAdd = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: white;
-
-`
-
-const SMinusOutlineCircle = styled(MinusCircleOutlined)`
-  transition: all .15s ease-in-out;
-
-  &:hover {
-    animation: pulse 1s infinite;
-    transition: .3s;
-  }
-`
-const SPlusOutlineCircle = styled(PlusCircleOutlined)`
-  cursor: pointer;
-  transition: .3s;
-
-  &:hover {
-    animation: pulse 1s infinite;
-    transition: .3s;
-  }
-`
 const Footer = styled.div`
   display: flex;
   width: 100%;
@@ -424,4 +182,11 @@ const SubTextLightHover = styled(SubTextLight)`
   &:hover {
     color: #0070f3;
   }
+`
+const RowBanner = styled.div`
+display: flex;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 20px;
 `
